@@ -1,0 +1,36 @@
+{
+	"name": "hazelchat/kirby-hazelchat",
+	"description": "Adds the Hazelchat AI chat agent to every page of a Kirby site from one pasted installation code. It answers visitors from the pages you approve and passes on their enquiries. Needs a Hazelchat account; the Free plan covers one website.",
+	"type": "kirby-plugin",
+	"version": "1.0.0",
+	"keywords": ["kirby", "kirby-plugin", "kirby-cms", "chat", "ai", "chat agent", "chatbot", "enquiries", "consent"],
+	"homepage": "https://hazelchat.co/integrations/kirby/",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Hazelchat",
+			"email": "hello@hazelchat.co",
+			"homepage": "https://hazelchat.co",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "hello@hazelchat.co",
+		"docs": "https://hazelchat.co/integrations/kirby/",
+		"issues": "https://github.com/hazelchat-co/kirby-hazelchat/issues",
+		"source": "https://github.com/hazelchat-co/kirby-hazelchat"
+	},
+	"require": {
+		"php": ">=8.1.0 <8.6.0",
+		"getkirby/composer-installer": "^1.2"
+	},
+	"config": {
+		"optimize-autoloader": true
+	},
+	"extra": {
+		"installer-name": "hazelchat",
+		"kirby": {
+			"compatible": "^4.0 || ^5.0"
+		}
+	}
+}
