@@ -24,7 +24,8 @@ Adds your [Hazelchat](https://hazelchat.co/?utm_source=kirby&utm_medium=plugin&u
 - Every HTML page gets one tag just before `</body>`:
   `<script src="https://app.hazelchat.co/widget.js" id="hazelchat-kirby" defer data-agent="<key>"></script>`
 - The installation code may be the pasted code or just its 64-character key. Only a valid key is saved or printed; anything else, such as an API key, is refused.
-- **Wait for my consent manager** (off; `'hazelchat.kirby.consent' => true` in config.php) adds `data-require-consent="true"`: the chat starts only once your consent manager allows it. See [Visitor consent](https://hazelchat.co/integrations/kirby/#consent).
+- **Wait for my consent manager** (off; `'hazelchat.kirby.consent' => true` in config.php) adds `data-require-consent="true"`: the chat starts only once your consent manager allows it. Only the chat waits: browsers still download `widget.js` from `app.hazelchat.co` straight away, so the visitor's IP address reaches Hazelchat before they agree. This is by design. If your site must prevent that too, use a consent tool that can block the script itself. See [Visitor consent](https://hazelchat.co/integrations/kirby/#consent).
+- The script tag carries the id `hazelchat-kirby`. When Hazelchat checks your website, it reads this id to record that the chat was installed with this plugin, and it counts the plugin's installations that way.
 - The Panel never loads the chat, and JSON, RSS and other content representations stay as they are. Pages from Kirby's page cache carry the tag; saving in the dialog clears that cache.
 - The **Hazelchat** dialog is for administrators only. It saves the key and the switch in your site content (`hazelchat_key`, `hazelchat_consent`). A value in config.php takes precedence.
 - Panel texts in English and German.
@@ -36,7 +37,7 @@ Clear the installation code in the **Hazelchat** dialog (or remove the option fr
 
 ## Deutsch
 
-Hazelchat fügt Ihren KI-Chat-Agenten mit einem einzigen Installationscode in jede Seite Ihrer Kirby-Site ein (Kirby 4 und 5). Installieren Sie das Plugin (`composer require hazelchat/kirby-hazelchat` oder den Ordner nach `site/plugins/hazelchat` kopieren), öffnen Sie im Panel **Hazelchat**, fügen Sie den Code aus Hazelchat ein und speichern Sie. Die Browser Ihrer Besucher laden den Chat von `app.hazelchat.co`; deren Fragen und Anfragedaten verarbeitet Hazelchat. Sie brauchen ein Hazelchat-Konto; der Free-Tarif gilt für eine Website und bleibt kostenlos.
+Hazelchat fügt Ihren KI-Chat-Agenten mit einem einzigen Installationscode in jede Seite Ihrer Kirby-Site ein (Kirby 4 und 5). Installieren Sie das Plugin (`composer require hazelchat/kirby-hazelchat` oder den Ordner nach `site/plugins/hazelchat` kopieren), öffnen Sie im Panel **Hazelchat**, fügen Sie den Code aus Hazelchat ein und speichern Sie. Die Browser Ihrer Besucher laden den Chat von `app.hazelchat.co`; deren Fragen und Anfragedaten verarbeitet Hazelchat. Wartet der Chat auf Ihren Consent-Manager, lädt der Browser `widget.js` trotzdem sofort, und die IP-Adresse des Besuchers erreicht Hazelchat schon vor der Einwilligung; nur der Chat wartet. Über die ID `hazelchat-kirby` im Skript-Tag zählt Hazelchat die Installationen dieses Plugins. Sie brauchen ein Hazelchat-Konto; der Free-Tarif gilt für eine Website und bleibt kostenlos.
 
 ## Licence
 
